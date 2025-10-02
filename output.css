@@ -224,6 +224,12 @@
   .h-auto {
     height: auto;
   }
+  .h-fit {
+    height: fit-content;
+  }
+  .h-full {
+    height: 100%;
+  }
   .max-h-65 {
     max-height: calc(var(--spacing) * 65);
   }
@@ -274,6 +280,9 @@
   }
   .w-full {
     width: 100%;
+  }
+  .max-w-65 {
+    max-width: calc(var(--spacing) * 65);
   }
   .max-w-80 {
     max-width: calc(var(--spacing) * 80);

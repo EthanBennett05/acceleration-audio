@@ -96,10 +96,10 @@ document.addEventListener("keydown", (event) => {
 function NextSong() {
   TimeStamp = 0;
   playbackSpeed = 1;
-  if (currentTrack >= songs.length-1) {
+  currentTrack++;
+  if (currentTrack >= songs.length) {
     currentTrack = 0
   }
-  currentTrack++;
   audioPlayer.src = `${baseURL}/${songs[currentTrack].file}`;
   audioPlayer.load();
   playButton.classList.remove("hidden");
@@ -113,10 +113,10 @@ function NextSong() {
 function BackSong() {
   TimeStamp = 0;
   playbackSpeed = 1;
-  if (currentTrack <= 0) {
-    currentTrack = songs.length-1
-  }
   currentTrack--;
+  if (currentTrack <= -1) {
+    currentTrack = songs.length
+  }
   audioPlayer.src = `${baseURL}/${songs[currentTrack].file}`;
   audioPlayer.load()
   playButton.classList.remove("hidden");
