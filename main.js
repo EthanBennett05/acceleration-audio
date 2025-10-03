@@ -9,6 +9,10 @@ const songImage = document.getElementById("song-image");
 const songPlaying = document.getElementById("song-playing");
 const currentTimeHTML = document.getElementById("current-time");
 const durationHTML = document.getElementById("duration")
+const playbackDisplay = document.getElementById("playbackDisplay");
+const backTenSec = document.getElementById("backTenSec")
+const fowardTenSec = document.getElementById("fowardTenSec")
+
 
 let TimeStamp = 0;
 let playbackSpeed = 1;
@@ -37,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   songImage.src = `${imgURL}/${songs[currentTrack].albumArt}`
   songPlaying.textContent = songs[currentTrack].name
   currentTimeHTML.textContent = audioPlayer.currentTime
+  playbackDisplay.textContent = audioPlayer.playbackRate
   durationHTML.textContent = audioPlayer.duration
 });
 
@@ -67,8 +72,24 @@ pauseButton.addEventListener("click", () => {
   pauseButton.classList.add("hidden");
 });
 
+fowardTenSec.addEventListener("click" , ()=> {
+  console.log("Skip 10 Seconds")
+  audioPlayer.currentTime += 10;
+  audioPlayer.playbackRate += 0.1;
+})
+
+backTenSec.addEventListener("click" , ()=> {
+  console.log("Skip 10 Seconds")
+  audioPlayer.currentTime -= 10;
+  audioPlayer.playbackRate -= 0.1;
+  if (audioPlayer.playbackRate < 1) {
+    audioPlayer.playbackRate = 1;
+  }
+})
+
 audioPlayer.addEventListener("timeupdate", () => {
   currentTimeHTML.textContent = formatTime(audioPlayer.currentTime);
+  playbackDisplay.textContent = `${audioPlayer.playbackRate.toFixed(2)}x`
 });
 
 audioPlayer.addEventListener("timeupdate", () => {

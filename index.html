@@ -23,8 +23,11 @@
       </div>
     </div>
 
-    <div id="play-bar" class="bg-amber-100 w-[50%] mx-auto">
-      <div class="flex justify-center pb-10">
+    <div id="play-bar" class="bg-amber-100 w-[60%] gap-10 mx-auto">
+      <div class="flex justify-center gap-10  pb-10">
+          <button id="backTenSec">
+            <i data-lucide="rotate-ccw" class="text-amber-600 fill-transparent w-20 h-20"></i>
+          </button>
           <button id="skip-back">
             <i data-lucide="skip-back" class="w-20 h-20 text-amber-600 fill-transparent"></i>
           </button>
@@ -33,13 +36,17 @@
           </button>
           <button id="pauseButton" class="hidden">
           <i data-lucide="pause" class=" text-amber-600 fill-transparent w-20 h-20"></i>
+          </button>
           <button id="next-song">
             <i data-lucide="skip-forward" class="text-amber-600 fill-transparent w-20 h-20"></i>
           </button>
+          <button id="fowardTenSec">
+            <i data-lucide="rotate-cw" class="text-amber-600 fill-transparent w-20 h-20"></i>
           </button>
       </div>
         <div class="flex justify-between">
           <p id="current-time" class=""></p>
+          <p id="playbackDisplay"></p>
           <p id="duration" class=""></p>
         </div>
         <div id="custom-progress" class="w-full h-8 rounded-[25px] bg-amber-500 trasition-all overflow-hidden">
